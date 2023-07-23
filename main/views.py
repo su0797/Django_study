@@ -14,8 +14,8 @@ def contact(request):
 
 def test(request):
     data = [
-        {'name': 'leehojun', 'age':10},
-        {'name': 'leehojun2', 'age':20}
+        {'name': 'su', 'age':10},
+        {'name': 'su2', 'age':20}
     ]
 
     # return HttpResponse('hello world') # 1
@@ -23,6 +23,8 @@ def test(request):
     # 결국 render도 HttpResponse를 리턴합니다. :)
 
     s = render_to_string('main/test.txt', {'data': data})
-    return HttpResponse(s) # 3
+    header = '<h2>hello world</h2>'
+    footer = '<h2>bye world</h2>'
+    return HttpResponse(header + s + footer) # 3
 
     # return render(request, 'main/test.html')
